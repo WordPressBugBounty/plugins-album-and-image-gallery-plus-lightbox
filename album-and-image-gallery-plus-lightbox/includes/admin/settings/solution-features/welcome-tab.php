@@ -14,14 +14,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div id="aigpl_welcome_tabs" class="aigpl-vtab-cnt aigpl_welcome_tabs aigpl-clearfix">	
 
-	<div class="aigpl-deal-offer-wrap">
+	<!-- <div class="aigpl-deal-offer-wrap">
 		<h3 style="font-weight: bold; font-size: 30px; color:#ffef00; text-align:center; margin: 15px 0 5px 0;">Why Invest Time On Free version?</h3>
 
 		<h3 style="font-size: 18px; text-align:center; margin:0; color:#fff;">Explore Slick Slider Pro with Essential Bundle Free for 5 Days.</h3>			
 
 		<div class="aigpl-deal-free-offer">
-			<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank" class="aigpl-sf-free-btn"><span class="dashicons dashicons-cart"></span> Try Pro For 5 Days Free</a>
+			<a href="<?php //echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank" class="aigpl-sf-free-btn"><span class="dashicons dashicons-cart"></span> Try Pro For 5 Days Free</a>
 		</div>
+	</div> -->
+
+	<div class="aigpl-black-friday-banner-wrp">
+		<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
 	</div>
 
 	<!-- <h1 class="aigpl-sf-heading">Create effective image <span class="aigpl-sf-blue">albums and galleries</span> to show off your <span class="aigpl-sf-blue">beautiful photographs and other images </span> on your website.</h1> -->

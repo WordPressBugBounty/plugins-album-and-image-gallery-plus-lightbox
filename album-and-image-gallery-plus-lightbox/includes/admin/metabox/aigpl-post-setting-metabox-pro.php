@@ -12,10 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- <div class="pro-notice"><strong><?php //echo sprintf( __( 'Utilize this <a href="%s" target="_blank">Premium Features (With Risk-Free 30 days money back guarantee)</a> to get best of this plugin with Annual or Lifetime bundle deal.', 'album-and-image-gallery-plus-lightbox'), AIGPL_PLUGIN_LINK_UNLOCK); ?></strong></div> -->
 
-<div class="pro-notice">
+<!-- <div class="pro-notice">
 	<strong>
-		<?php echo sprintf( __( 'Try All These <a href="%s" target="_blank">PRO Features in Essential Bundle Free For 5 Days.</a>', 'album-and-image-gallery-plus-lightbox'), AIGPL_PLUGIN_LINK_UNLOCK); ?>
+		<?php // echo sprintf( __( 'Try All These <a href="%s" target="_blank">PRO Features in Essential Bundle Free For 5 Days.</a>', 'album-and-image-gallery-plus-lightbox'), AIGPL_PLUGIN_LINK_UNLOCK); ?>
 	</strong>
+</div> -->
+
+<div class="aigpl-black-friday-banner-wrp">
+	<a href="<?php echo esc_url( AIGPL_PLUGIN_LINK_UNLOCK ); ?>" target="_blank"><img style="width: 100%;" src="<?php echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
 </div>
 
 <table class="form-table aigpl-metabox-table">

@@ -304,7 +304,7 @@ class Aigpl_Admin {
 		add_submenu_page( 'edit.php?post_type='.AIGPL_POST_TYPE, __('Overview - Album and Image Gallery Plus Lightbox', 'album-and-image-gallery-plus-lightbox'), '<span style="color:#2ECC71">'. __('Overview', 'album-and-image-gallery-plus-lightbox').'</span>', 'manage_options', 'aigpl-solutions-features', array($this, 'aigpl_solutions_features_page') );
 
 		// Register plugin premium page
-		add_submenu_page( 'edit.php?post_type='.AIGPL_POST_TYPE, __('Upgrade To PRO - Album and Image Gallery Plus Lightbox', 'album-and-image-gallery-plus-lightbox'), '<span style="color:#ff2700">'.__('Upgrade To PRO - Try Pro For 5 Days Free', 'album-and-image-gallery-plus-lightbox').'</span>', 'manage_options', 'aigpl-premium', array($this, 'aigpl_premium_page') );
+		add_submenu_page( 'edit.php?post_type='.AIGPL_POST_TYPE, __('Upgrade To PRO - Album and Image Gallery Plus Lightbox', 'album-and-image-gallery-plus-lightbox'), '<span style="color:#ff2700">'.__('Upgrade To PRO – Early Back Friday Deals', 'album-and-image-gallery-plus-lightbox').'</span>', 'manage_options', 'aigpl-premium', array($this, 'aigpl_premium_page') );
 	}
 
 	/**

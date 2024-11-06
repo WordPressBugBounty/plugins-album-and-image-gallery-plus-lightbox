@@ -2,8 +2,8 @@
 Contributors: wponlinesupport, anoopranawat, pratik-jain, piyushpatel123, patelketan
 Tags: album slider, magnific-popup, fancybox popup, image gallery slider, responsive gallery
 Requires at least: 4.0
-Tested up to: 6.6.1
-Stable tag: 2.1.1
+Tested up to: 6.6.2
+Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -209,6 +209,9 @@ Where limit define the number of posts to display.
 5. Also work with Gutenberg shortcode block.
 
 == Changelog ==
+
+= 2.1.2 (06 Nov 2024) =
+* [*] Check compatibility with WordPress version 6.6.2
 
 = 2.1.1 (24 July 2024) =
 * [*] Check compatibility with WordPress version 6.6.1

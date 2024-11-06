@@ -20,6 +20,8 @@ $tab = isset( $_GET['tab'] ) ? '#'.$_GET['tab'] : '#aigpl_welcome_tabs';
 	<h2  class="wpos-main-heading-tittle">Welcome to <span class="aigpl-blue">Album and Image Gallery Plus Lightbox</span></h2>
 	<style>
 
+		.wpos-plugin-pricing-table{margin-bottom: 20px;}
+
 		.wpos-new-feature{font-size: 10px; color: #fff; font-weight: bold; background-color: #03aa29; padding:1px 4px; font-style: normal;}
 
 		/**** Solution Features CSS ****/

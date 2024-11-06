@@ -13,6 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 <div id="aigpl_basic_tabs" class="aigpl-vtab-cnt aigpl_basic_tabs aigpl-clearfix">
 
+	<div class="aigpl-black-friday-banner-wrp">
+		<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
+	</div>
+
 	<h3 style="text-align:center">Compare <span class="aigpl-blue">"Album and Image Gallery Plus Lightbox"</span> Basic VS Pro</h3>
 
 	<!-- <div class="aigpl-deal-offer-wrap">
@@ -29,16 +33,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div> -->
 
-	<div class="aigpl-deal-offer-wrap">
+	<!-- <div class="aigpl-deal-offer-wrap">
 		<div class="aigpl-deal-offer"> 
 			<div class="aigpl-inn-deal-offer">
 				<h3 class="aigpl-inn-deal-hedding"><span>Try Album and Image Gallery Plus Lightbox Pro</span> in Essential Bundle Free For 5 Days.</h3>
 			</div>
 			<div class="aigpl-deal-free-offer">
-				<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank" class="aigpl-sf-free-btn"><span class="dashicons dashicons-cart"></span> Try Pro For 5 Days Free</a>
+				<a href="<?php //echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank" class="aigpl-sf-free-btn"><span class="dashicons dashicons-cart"></span> Try Pro For 5 Days Free</a>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<table class="wpos-plugin-pricing-table">
 		<colgroup></colgroup>
@@ -242,15 +246,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div> -->
 
-	<div class="aigpl-deal-offer-wrap">
+	<!-- <div class="aigpl-deal-offer-wrap">
 		<div class="aigpl-deal-offer"> 
 			<div class="aigpl-inn-deal-offer">
 				<h3 class="aigpl-inn-deal-hedding"><span>Try Album and Image Gallery Plus Lightbox Pro</span> in Essential Bundle Free For 5 Days.</h3>
 			</div>
 			<div class="aigpl-deal-free-offer">
-				<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank" class="aigpl-sf-free-btn"><span class="dashicons dashicons-cart"></span> Try Pro For 5 Days Free</a>
+				<a href="<?php //echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank" class="aigpl-sf-free-btn"><span class="dashicons dashicons-cart"></span> Try Pro For 5 Days Free</a>
 			</div>
 		</div>
+	</div> -->
+
+	<div class="aigpl-black-friday-banner-wrp">
+		<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
 	</div>
 
 </div>

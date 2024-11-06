@@ -6,7 +6,7 @@
  * Author: WP OnlineSupport, Essential Plugin
  * Text Domain: album-and-image-gallery-plus-lightbox
  * Domain Path: /languages/
- * Version: 2.1.1
+ * Version: 2.1.2
  * Author URI: https://www.essentialplugin.com/wordpress-plugin/album-image-gallery-plus-lightbox/
  *
  * @package Album and Image Gallery Plus Lightbox
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 if( ! defined( 'AIGPL_VERSION' ) ) {
-	define( 'AIGPL_VERSION', '2.1.1' ); // Version of plugin
+	define( 'AIGPL_VERSION', '2.1.2' ); // Version of plugin
 }
 
 if( ! defined( 'AIGPL_DIR' ) ) {
@@ -67,11 +67,11 @@ if( ! defined( 'AIGPL_SITE_LINK' ) ) {
 // }
 
 if( ! defined( 'AIGPL_PLUGIN_BUNDLE_LINK' ) ) {
-	define('AIGPL_PLUGIN_BUNDLE_LINK', 'https://www.wponlinesupport.com/checkout/?edd_action=add_to_cart&download_id=14791&edd_options[price_id]=7&wpos_cart_flush=1&utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Welcome-Screen'); // Plugin link
+	define('AIGPL_PLUGIN_BUNDLE_LINK', 'https://www.essentialplugin.com/pricing/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Welcome-Screen'); // Plugin link
 }
 
 if( ! defined( 'AIGPL_PLUGIN_LINK_UNLOCK' ) ) {
-	define('AIGPL_PLUGIN_LINK_UNLOCK', 'https://www.wponlinesupport.com/checkout/?edd_action=add_to_cart&download_id=14791&edd_options[price_id]=7&wpos_cart_flush=1&utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Features-PRO'); // Plugin link
+	define('AIGPL_PLUGIN_LINK_UNLOCK', 'https://www.essentialplugin.com/pricing/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Features-PRO'); // Plugin link
 }
 
 /**
