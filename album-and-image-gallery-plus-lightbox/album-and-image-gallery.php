@@ -3,10 +3,10 @@
  * Plugin Name: Album and Image Gallery Plus Lightbox
  * Plugin URI: https://www.essentialplugin.com/wordpress-plugins/album-image-gallery-plus-lightbox
  * Description: Easy to add and display image gallery and gallery slider. Also work with Gutenberg shortcode block.
- * Author: WP OnlineSupport, Essential Plugin
+ * Author: Essential Plugin
  * Text Domain: album-and-image-gallery-plus-lightbox
  * Domain Path: /languages/
- * Version: 2.1.2
+ * Version: 2.1.4
  * Author URI: https://www.essentialplugin.com/wordpress-plugin/album-image-gallery-plus-lightbox/
  *
  * @package Album and Image Gallery Plus Lightbox
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 if( ! defined( 'AIGPL_VERSION' ) ) {
-	define( 'AIGPL_VERSION', '2.1.2' ); // Version of plugin
+	define( 'AIGPL_VERSION', '2.1.4' ); // Version of plugin
 }
 
 if( ! defined( 'AIGPL_DIR' ) ) {

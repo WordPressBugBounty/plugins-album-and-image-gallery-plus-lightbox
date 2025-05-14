@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div id="aigpl_themes_tabs" class="aigpl-vtab-cnt aigpl_themes_tabs aigpl-clearfix">
 
-	<div class="aigpl-black-friday-banner-wrp">
-		<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
-	</div>
+	<!-- <div class="aigpl-black-friday-banner-wrp">
+		<a href="<?php // echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php // echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
+	</div> -->
 
 	<div class="aigpl-features-section">
 		<div class="aigpl-sf-center aigpl-features-ttl">
@@ -73,8 +73,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div> -->
 
-	<div class="aigpl-black-friday-banner-wrp">
-		<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
-	</div>
+	<!-- <div class="aigpl-black-friday-banner-wrp">
+		<a href="<?php // echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php // echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
+	</div> -->
 
 </div>

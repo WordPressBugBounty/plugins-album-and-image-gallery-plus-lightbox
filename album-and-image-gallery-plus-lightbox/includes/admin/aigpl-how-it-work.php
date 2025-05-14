@@ -173,7 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<li><?php esc_html_e('100% Multi language', 'album-and-image-gallery-plus-lightbox'); ?></li>
 								</ul>
 								<div class="upgrade-to-pro"><?php echo sprintf( __( 'Gain access to <strong>Album and Image Gallery Plus Lightbox</strong>', 'album-and-image-gallery-plus-lightbox' ) ); ?></div>
-								<a class="button button-primary wpos-button-full button-orange" href="<?php echo esc_url( AIGPL_PLUGIN_LINK_UNLOCK ); ?>" target="_blank"><?php esc_html_e('Try Pro with Back Friday Deals', 'album-and-image-gallery-plus-lightbox'); ?></a>
+								<a class="button button-primary wpos-button-full button-orange" href="<?php echo esc_url( AIGPL_PLUGIN_LINK_UNLOCK ); ?>" target="_blank"><?php esc_html_e('Upgrade To PRO', 'album-and-image-gallery-plus-lightbox'); ?></a>
 							</div><!-- .inside -->
 						</div><!-- #general -->
 					</div><!-- .meta-box-sortables -->

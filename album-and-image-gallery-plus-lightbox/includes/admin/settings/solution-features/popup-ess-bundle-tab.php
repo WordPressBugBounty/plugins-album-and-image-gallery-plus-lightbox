@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div id="aigpl_unlock_tabs" class="aigpl-vtab-cnt aigpl_unlock_tabs aigpl-clearfix">
 
-	<div class="aigpl-black-friday-banner-wrp">
-		<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
-	</div>
+	<!-- <div class="aigpl-black-friday-banner-wrp">
+		<a href="<?php // echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php // echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
+	</div> -->
 
 	<h2 style="font-size: 24px; text-align: center; color: #6c63ff;">Bundle Deal Details</h2>
 	<table class="wpos-plugin-list">
@@ -125,8 +125,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div> -->
 
-	<div class="aigpl-black-friday-banner-wrp">
-		<a href="<?php echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
-	</div>
+	<!-- <div class="aigpl-black-friday-banner-wrp">
+		<a href="<?php// echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php // echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
+	</div> -->
 
 </div>

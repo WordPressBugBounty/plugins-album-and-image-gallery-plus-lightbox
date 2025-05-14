@@ -1,13 +1,13 @@
 ﻿=== Album and Image Gallery plus Lightbox ===
-Contributors: wponlinesupport, anoopranawat, pratik-jain, piyushpatel123, patelketan
+Contributors: essentialplugin
 Tags: album slider, magnific-popup, fancybox popup, image gallery slider, responsive gallery
 Requires at least: 4.0
-Tested up to: 6.6.2
-Stable tag: 2.1.2
+Tested up to: 6.8.1
+Stable tag: 2.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A quick, easy way to add and display responsive image gallery and image album in a grid or slider with light box. Also work with Gutenberg shortcode block.
+A quick, easy way to display responsive image gallery and image album in a grid or slider with light box. Also work with Gutenberg shortcode block.
 
 == Description ==
 
@@ -209,6 +209,12 @@ Where limit define the number of posts to display.
 5. Also work with Gutenberg shortcode block.
 
 == Changelog ==
+
+= 2.1.4 (14, May 2025) =
+* [*] Check compatibility with WordPress version 6.8.1
+
+= 2.1.3 (20, January 2025) =
+* [*] Check compatibility with WordPress version 6.7.1
 
 = 2.1.2 (06 Nov 2024) =
 * [*] Check compatibility with WordPress version 6.6.2

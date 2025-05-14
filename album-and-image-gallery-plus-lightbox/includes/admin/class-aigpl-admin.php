@@ -301,10 +301,10 @@ class Aigpl_Admin {
 		add_submenu_page( 'edit.php?post_type='.AIGPL_POST_TYPE, __('How it works, our plugins and offers', 'album-and-image-gallery-plus-lightbox'), __('How It Works', 'album-and-image-gallery-plus-lightbox'), 'manage_options', 'aigpl-designs', array($this, 'aigpl_designs_page') );
 
 		// Setting page
-		add_submenu_page( 'edit.php?post_type='.AIGPL_POST_TYPE, __('Overview - Album and Image Gallery Plus Lightbox', 'album-and-image-gallery-plus-lightbox'), '<span style="color:#2ECC71">'. __('Overview', 'album-and-image-gallery-plus-lightbox').'</span>', 'manage_options', 'aigpl-solutions-features', array($this, 'aigpl_solutions_features_page') );
+		add_submenu_page( 'edit.php?post_type='.AIGPL_POST_TYPE, __('Overview - Album and Image Gallery Plus Lightbox', 'album-and-image-gallery-plus-lightbox'), __('Overview', 'album-and-image-gallery-plus-lightbox'), 'manage_options', 'aigpl-solutions-features', array($this, 'aigpl_solutions_features_page') );
 
 		// Register plugin premium page
-		add_submenu_page( 'edit.php?post_type='.AIGPL_POST_TYPE, __('Upgrade To PRO - Album and Image Gallery Plus Lightbox', 'album-and-image-gallery-plus-lightbox'), '<span style="color:#ff2700">'.__('Upgrade To PRO – Early Back Friday Deals', 'album-and-image-gallery-plus-lightbox').'</span>', 'manage_options', 'aigpl-premium', array($this, 'aigpl_premium_page') );
+		add_submenu_page( 'edit.php?post_type='.AIGPL_POST_TYPE, __('Upgrade To PRO - Album and Image Gallery Plus Lightbox', 'album-and-image-gallery-plus-lightbox'), '<span style="color:#2ECC71">'.__('Upgrade To PRO', 'album-and-image-gallery-plus-lightbox').'</span>', 'manage_options', 'aigpl-premium', array($this, 'aigpl_premium_page') );
 	}
 
 	/**
