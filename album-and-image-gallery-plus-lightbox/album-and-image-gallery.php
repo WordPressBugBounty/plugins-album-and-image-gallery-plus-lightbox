@@ -1,13 +1,15 @@
 <?php
 /**
  * Plugin Name: Album and Image Gallery Plus Lightbox
- * Plugin URI: https://www.essentialplugin.com/wordpress-plugins/album-image-gallery-plus-lightbox
+ * Plugin URI: https://essentialplugin.com/wordpress-plugins/album-image-gallery-plus-lightbox
  * Description: Easy to add and display image gallery and gallery slider. Also work with Gutenberg shortcode block.
  * Author: Essential Plugin
  * Text Domain: album-and-image-gallery-plus-lightbox
  * Domain Path: /languages/
- * Version: 2.1.5
- * Author URI: https://www.essentialplugin.com
+ * Version: 2.1.8
+ * Author URI: https://essentialplugin.com
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package Album and Image Gallery Plus Lightbox
  * @author Essential Plugin
@@ -22,44 +24,44 @@ if ( ! defined( 'ABSPATH' ) ) {
  * 
  * @since 1.0.0
  */
-if( ! defined( 'AIGPL_VERSION' ) ) {
-	define( 'AIGPL_VERSION', '2.1.5' ); // Version of plugin
+if ( ! defined( 'AIGPL_VERSION' ) ) {
+	define( 'AIGPL_VERSION', '2.1.8' ); // Version of plugin
 }
 
-if( ! defined( 'AIGPL_DIR' ) ) {
+if ( ! defined( 'AIGPL_DIR' ) ) {
 	define( 'AIGPL_DIR', dirname( __FILE__ ) ); // Plugin dir
 }
 
-if( ! defined( 'AIGPL_URL' ) ) {
+if ( ! defined( 'AIGPL_URL' ) ) {
 	define( 'AIGPL_URL', plugin_dir_url( __FILE__ ) ); // Plugin url
 }
 
-if( ! defined( 'AIGPL_POST_TYPE' ) ) {
+if ( ! defined( 'AIGPL_POST_TYPE' ) ) {
 	define( 'AIGPL_POST_TYPE', 'aigpl_gallery' ); // Plugin post type
 }
 
-if( ! defined( 'AIGPL_CAT' ) ) {
+if ( ! defined( 'AIGPL_CAT' ) ) {
 	define( 'AIGPL_CAT', 'aigpl_cat' ); // Plugin category name
 }
 
-if( ! defined( 'AIGPL_META_PREFIX' ) ) {
+if ( ! defined( 'AIGPL_META_PREFIX' ) ) {
 	define( 'AIGPL_META_PREFIX', '_aigpl_' ); // Plugin metabox prefix
 }
 
-if( ! defined( 'AIGPL_PLUGIN_LINK_UPGRADE' ) ) {
-	define('AIGPL_PLUGIN_LINK_UPGRADE','https://www.essentialplugin.com/pricing/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Upgrade-PRO'); // Plugin Check link
+if ( ! defined( 'AIGPL_PLUGIN_LINK_UPGRADE' ) ) {
+	define('AIGPL_PLUGIN_LINK_UPGRADE','https://essentialplugin.com/pricing/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Upgrade-PRO'); // Plugin Check link
 }
 
-if( ! defined( 'AIGPL_SITE_LINK' ) ) {
-	define('AIGPL_SITE_LINK', 'https://www.essentialplugin.com'); // Plugin Site link
+if ( ! defined( 'AIGPL_SITE_LINK' ) ) {
+	define('AIGPL_SITE_LINK', 'https://essentialplugin.com'); // Plugin Site link
 }
 
-if( ! defined( 'AIGPL_PLUGIN_BUNDLE_LINK' ) ) {
-	define('AIGPL_PLUGIN_BUNDLE_LINK', 'https://www.essentialplugin.com/pricing/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Welcome-Screen'); // Plugin link
+if ( ! defined( 'AIGPL_PLUGIN_BUNDLE_LINK' ) ) {
+	define('AIGPL_PLUGIN_BUNDLE_LINK', 'https://essentialplugin.com/pricing/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Welcome-Screen'); // Plugin link
 }
 
-if( ! defined( 'AIGPL_PLUGIN_LINK_UNLOCK' ) ) {
-	define('AIGPL_PLUGIN_LINK_UNLOCK', 'https://www.essentialplugin.com/pricing/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Features-PRO'); // Plugin link
+if ( ! defined( 'AIGPL_PLUGIN_LINK_UNLOCK' ) ) {
+	define('AIGPL_PLUGIN_LINK_UNLOCK', 'https://essentialplugin.com/pricing/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Features-PRO'); // Plugin link
 }
 
 /**
@@ -131,7 +133,7 @@ function aigpl_install() {
 	aigpl_register_taxonomies();
 
 	// Deactivate Pro version
-	if( is_plugin_active('album-and-image-gallery-plus-lightbox-pro/album-and-image-gallery.php') ){
+	if ( is_plugin_active('album-and-image-gallery-plus-lightbox-pro/album-and-image-gallery.php') ){
 		add_action('update_option_active_plugins', 'aigpl_deactivate_pro_version');
 	}
 
@@ -158,13 +160,13 @@ function aigpl_plugin_admin_notice() {
 	global $pagenow;
 
 	// If not plugin screen
-	if( 'plugins.php' != $pagenow ) {
+	if ( 'plugins.php' != $pagenow ) {
 		return;
 	}
 
 	$dir = WP_PLUGIN_DIR . '/album-and-image-gallery-plus-lightbox-pro/album-and-image-gallery.php';
 
-	if( ! file_exists( $dir ) ) {
+	if ( ! file_exists( $dir ) ) {
 		return;
 	}
 
@@ -172,13 +174,16 @@ function aigpl_plugin_admin_notice() {
 	$notice_transient	= get_transient( 'aigpl_install_notice' );
 
 	// If free plugin exist
-	if( $notice_transient == false && current_user_can( 'install_plugins' ) ) {
+	if ( $notice_transient == false && current_user_can( 'install_plugins' ) ) {
 		echo '<div class="updated notice" style="position:relative;">
 			<p>
-				<strong>'.sprintf( __('Thank you for activating %s', 'album-and-image-gallery-plus-lightbox'), 'Album and Image Gallery Plus Lightbox').'</strong>.<br/>
-				'.sprintf( __('It looks like you had PRO version %s of this plugin activated. To avoid conflicts the extra version has been deactivated and we recommend you delete it.', 'album-and-image-gallery-plus-lightbox'), '<strong>Album and Image Gallery Plus Lightbox PRO</strong>' ).'
-			</p>
-			<a href="'.esc_url( $notice_link ).'" class="notice-dismiss" style="text-decoration:none;"></a>
+				<strong>' . 
+				/* translators: %s is the plugin name that was activated */
+				sprintf( __('Thank you for activating %s', 'album-and-image-gallery-plus-lightbox'), 'Album and Image Gallery Plus Lightbox') . '</strong>.<br/>' . 
+				/* translators: %s is the PRO plugin name that should be deactivated */
+				sprintf( __('It looks like you had PRO version %s of this plugin activated. To avoid conflicts the extra version has been deactivated and we recommend you delete it.', 'album-and-image-gallery-plus-lightbox'), '<strong>Album and Image Gallery Plus Lightbox PRO</strong>' ) . 
+			'</p>
+			<a href="' . esc_url( $notice_link ) . '" class="notice-dismiss" style="text-decoration:none;"></a>
 		</div>';
 	}
 }
@@ -228,13 +233,13 @@ if ( is_admin() ) {
 
 	wpos_espbw_init_module( array(
 							'prefix'	=> 'aigpl',
-							'menu'		=> 'edit.php?post_type='.AIGPL_POST_TYPE,
+							'menu'		=> 'edit.php?post_type=' . AIGPL_POST_TYPE,
 						));
 }
 /* Recommended Plugins Ends */
 
 /* Plugin Wpos Analytics Data Starts */
-if( ! function_exists( 'aigpl_analytics_load' ) ) {
+if ( ! function_exists( 'aigpl_analytics_load' ) ) {
 	function aigpl_analytics_load() {
 
 		require_once dirname( __FILE__ ) . '/wpos-analytics/wpos-analytics.php';

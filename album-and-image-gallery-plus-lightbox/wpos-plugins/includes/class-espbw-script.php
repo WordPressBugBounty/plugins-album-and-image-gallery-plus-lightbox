@@ -36,7 +36,7 @@ class WPOS_ESPBW_Script {
 		wp_register_script( 'espbw-admin-script', WPOS_ESPBW_URL.'assets/js/admin-script.js', array('jquery'), WPOS_ESPBW_VERSION, true );
 
 		// Olny for dashboard screen
-		if( strpos( $page, 'espbw-dashboard' ) !== false ) {
+		if ( strpos( $page, 'espbw-dashboard' ) !== false ) {
 
 			// enqueing admin css
 			wp_enqueue_style( 'espbw-admin-css' );

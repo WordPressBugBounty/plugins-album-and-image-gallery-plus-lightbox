@@ -29,11 +29,11 @@ class WPOS_ESPBW_Admin {
 		global $wpos_espbw_module;
 
 		// Loop of menu
-		if( ! empty( $wpos_espbw_module ) ) {
+		if ( ! empty( $wpos_espbw_module ) ) {
 			foreach ($wpos_espbw_module as $module_key => $module_val) {
 				
 				// Dashboard Page
-				add_submenu_page( $module_val['menu'], __('Essential Plugins Bundle By WP OnlineSuport', 'espbw'), '<span style="color:#2ECC71;">'.__('Install Our Popular Plugins', 'espbw').'</span>', 'manage_options', "{$module_val['prefix']}-espbw-dashboard", array($this, 'espbw_dashboard_page'), $module_val['position'] );
+				add_submenu_page( $module_val['menu'], __('Essential Plugins Bundle By EssentialPlugin', 'album-and-image-gallery-plus-lightbox'), '<span style="color:#2ECC71;">' . __('Install Our Popular Plugins', 'album-and-image-gallery-plus-lightbox') . '</span>', 'manage_options', "{$module_val['prefix']}-espbw-dashboard", array($this, 'espbw_dashboard_page'), $module_val['position'] );
 			}
 		}
 	}

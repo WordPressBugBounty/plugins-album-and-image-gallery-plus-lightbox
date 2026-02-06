@@ -1,9 +1,9 @@
-﻿=== Album and Image Gallery plus Lightbox ===
+﻿=== Album and Image Gallery Plus Lightbox ===
 Contributors: essentialplugin
 Tags: album slider, magnific-popup, fancybox popup, image gallery slider, responsive gallery
 Requires at least: 4.0
-Tested up to: 6.8.1
-Stable tag: 2.1.5
+Tested up to: 6.9
+Stable tag: 2.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ A quick, easy way to display responsive image gallery and image album in a grid 
 
 ✅ Now that you have your website ready then why don’t you **download** and try out this Album grid/slider to give it better functionality. 
 
-By **downloading** our WordPress Album and Image Gallery plus Lightbox on your website, you are in a way giving a very professional touch to it.
+By **downloading** our WordPress Album and Image Gallery Plus Lightbox on your website, you are in a way giving a very professional touch to it.
 
 [FREE DEMO](https://demo.essentialplugin.com/album-and-image-gallery-plus-lightbox-demo/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Read-Me) | [PRO DEMO](https://demo.essentialplugin.com/prodemo/album-and-image-gallery-plus-lightbox-pro/?utm_source=WP&utm_medium=Album-Gallery&utm_campaign=Read-Me)
 
@@ -193,8 +193,8 @@ Where limit define the number of posts to display.
 
 == Installation ==
 
-1. Upload the 'Album and Image Gallery plus Lightbox' folder to the '/wp-content/plugins/' directory.
-2. Activate the "Album and Image Gallery plus Lightbox" list plugin through the 'Plugins' menu in WordPress.
+1. Upload the 'Album and Image Gallery Plus Lightbox' folder to the '/wp-content/plugins/' directory.
+2. Activate the "Album and Image Gallery Plus Lightbox" list plugin through the 'Plugins' menu in WordPress.
 3. Add a new page and add desired short code in that.
 
 = How to install : =
@@ -209,6 +209,18 @@ Where limit define the number of posts to display.
 5. Also work with Gutenberg shortcode block.
 
 == Changelog ==
+
+= 2.1.8 (23, Dec 2025) =
+* [*] Check compatibility with WordPress version 6.9
+* [*] Fixed all security related issues.
+* [*] Added proper translation domains to all translatable strings.
+* [*] Updated General code improvements and best practices.
+
+= 2.1.7 (17, Nov 2025) =
+* [*] Fixed code conflict issue affecting widget saving.
+
+= 2.1.6 (12, Nov 2025) =
+* [*] Check compatibility with WordPress version 6.8.3
 
 = 2.1.5 (16, May 2025) =
 * [*] Updated some URL's

@@ -57,7 +57,7 @@ final class WPOS_Analytics {
 	 */
 	public function __clone() {
 		// Cloning instances of the class is forbidden.
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'pwpc' ), '1.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'album-and-image-gallery-plus-lightbox' ), '1.0' );
 	}
 
 	/**

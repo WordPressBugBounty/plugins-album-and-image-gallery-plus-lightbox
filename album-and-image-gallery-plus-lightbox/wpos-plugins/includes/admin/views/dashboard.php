@@ -39,10 +39,10 @@ $plugins_data	= wpos_espbw_get_plugin_data();
 $plugins_filter = wpos_espbw_plugins_filter();
 
 // Check Plugin Install Permission
-if( ! current_user_can('install_plugins') ) {
+if ( ! current_user_can('install_plugins') ) {
 	echo '<div class="error">
-			<p>'. esc_html__( "Sorry, It looks like that you do not have permission to install the plugin.", "espbw") .'</p>
-			<p>'. esc_html__("You can take a look at our all plugins at", "espbw") .' <a href="https://profiles.wordpress.org/essentialplugin#content-plugins" target="_blank">'. esc_html__("here", "espbw") . '</a>.</p>
+			<p>' . esc_html__( "Sorry, It looks like that you do not have permission to install the plugin.", "album-and-image-gallery-plus-lightbox") . '</p>
+			<p>' . esc_html__("You can take a look at our all plugins at", "album-and-image-gallery-plus-lightbox") . ' <a href="https://profiles.wordpress.org/essentialplugin#content-plugins" target="_blank">' . esc_html__("here", "album-and-image-gallery-plus-lightbox") . '</a>.</p>
 		 </div>';
 	return;
 }
@@ -56,7 +56,7 @@ if( ! current_user_can('install_plugins') ) {
 		<div class="espbw-dashboard-title">
 			<div class="espbw-dashboard-title-inr">
 				<div class="espbw-dashboard-logo"><img src="<?php echo esc_url( WPOS_ESPBW_URL ); ?>assets/images/essentialplugin-logo.png" alt="essentialplugin" /></div>
-				<h3 style="text-align:center;"><?php esc_html_e( 'Essential Plugin', 'espbw' ); ?></h3>
+				<h3 style="text-align:center;"><?php esc_html_e( 'Essential Plugin', 'album-and-image-gallery-plus-lightbox' ); ?></h3>
 				<em class="wpos-em">Installs directly from <b>wordpress.org</b> repository</em> <br />				
 			</div>
 		</div>
@@ -64,15 +64,15 @@ if( ! current_user_can('install_plugins') ) {
 
 		<div class="wp-filter espbw-filter">
 			<ul class="filter-links espbw-filter-links">
-				<li class="espbw-plugin-all"><a href="javascript:void(0);" class="espbw-filter-link current"><?php esc_html_e('All Essential Plugins', 'espbw'); ?></a></li>
-				<li class="espbw-plugin-recommended"><a href="javascript:void(0);" class="espbw-filter-link" data-filter="recommended"><?php esc_html_e('Utility Plugins', 'espbw'); ?></a></li>
-				<li class="espbw-plugin-sliders"><a href="javascript:void(0);" class="espbw-filter-link" data-filter="sliders"><?php esc_html_e('Sliders', 'espbw'); ?></a></li>
-				<li class="espbw-plugin-woo"><a href="javascript:void(0);" class="espbw-filter-link" data-filter="woocommerce"><?php esc_html_e('WooCommerce', 'espbw'); ?></a></li>
+				<li class="espbw-plugin-all"><a href="javascript:void(0);" class="espbw-filter-link current"><?php esc_html_e('All Essential Plugins', 'album-and-image-gallery-plus-lightbox'); ?></a></li>
+				<li class="espbw-plugin-recommended"><a href="javascript:void(0);" class="espbw-filter-link" data-filter="recommended"><?php esc_html_e('Utility Plugins', 'album-and-image-gallery-plus-lightbox'); ?></a></li>
+				<li class="espbw-plugin-sliders"><a href="javascript:void(0);" class="espbw-filter-link" data-filter="sliders"><?php esc_html_e('Sliders', 'album-and-image-gallery-plus-lightbox'); ?></a></li>
+				<li class="espbw-plugin-woo"><a href="javascript:void(0);" class="espbw-filter-link" data-filter="woocommerce"><?php esc_html_e('WooCommerce', 'album-and-image-gallery-plus-lightbox'); ?></a></li>
 			</ul>
 
 			<form class="search-form search-plugins" method="get">
 				<input type="hidden" name="page" value="espbw-dashboard" />
-				<input type="search" name="espbw_search" value="" class="wp-filter-search espbw-search-inp espbw-search-inp-js" placeholder="<?php echo esc_html_e('Search Plugins e.g popup', 'espbw'); ?>" />
+				<input type="search" name="espbw_search" value="" class="wp-filter-search espbw-search-inp espbw-search-inp-js" placeholder="<?php echo esc_html_e('Search Plugins e.g popup', 'album-and-image-gallery-plus-lightbox'); ?>" />
 			</form>
 		</div>
 
@@ -90,8 +90,8 @@ if( ! current_user_can('install_plugins') ) {
 						// Taking some data
 						$title					= wp_kses( $plugin_data['name'], $plugins_allowedtags );
 						$version				= wp_kses( $plugin_data['version'], $plugins_allowedtags );
-						$name					= strip_tags( $title . ' ' . $version );
-						$description			= strip_tags( $plugin_data['short_description'] );
+						$name					= wp_strip_all_tags( $title . ' ' . $version );
+						$description			= wp_strip_all_tags( $plugin_data['short_description'] );
 						$last_updated_timestamp = strtotime( $plugin_data['last_updated'] );
 						$author					= wp_kses( $plugin_data['author'], $plugins_allowedtags );
 						$author					= str_replace( "href=", 'target="_blank" href=', $author );
@@ -107,7 +107,7 @@ if( ! current_user_can('install_plugins') ) {
 						// Author String
 						if ( ! empty( $author ) ) {
 							/* translators: %s: Plugin author. */
-							$author = ' <cite>' . sprintf( __( 'By %s' ), $author ) . '</cite>';
+							$author = ' <cite>' . sprintf( __( 'By %s', 'album-and-image-gallery-plus-lightbox' ), $author ) . '</cite>';
 						}
 
 						// Plugin Icon
@@ -136,14 +136,14 @@ if( ! current_user_can('install_plugins') ) {
 												esc_attr( $plugin_data['slug'] ),
 												esc_url( $status['url'] ),
 												/* translators: %s: Plugin name and version. */
-												esc_attr( sprintf( __( 'Install %s now' ), $name ) ),
+												esc_attr( sprintf( __( 'Install %s now', 'album-and-image-gallery-plus-lightbox' ), $name ) ),
 												esc_attr( $name ),
-												__( 'Install Now' )
+												__( 'Install Now', 'album-and-image-gallery-plus-lightbox' )
 											);
 										} else {
 											$action_links[] = sprintf(
 												'<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-												_x( 'Cannot Install', 'plugin' )
+												_x( 'Cannot Install', 'plugin', 'album-and-image-gallery-plus-lightbox' )
 											);
 										}
 									}
@@ -158,14 +158,14 @@ if( ! current_user_can('install_plugins') ) {
 												esc_attr( $plugin_data['slug'] ),
 												esc_url( $status['url'] ),
 												/* translators: %s: Plugin name and version. */
-												esc_attr( sprintf( __( 'Update %s now' ), $name ) ),
+												esc_attr( sprintf( __( 'Update %s now', 'album-and-image-gallery-plus-lightbox' ), $name ) ),
 												esc_attr( $name ),
-												__( 'Update Now' )
+												__( 'Update Now', 'album-and-image-gallery-plus-lightbox' )
 											);
 										} else {
 											$action_links[] = sprintf(
 												'<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-												_x( 'Cannot Update', 'plugin' )
+												_x( 'Cannot Update', 'plugin', 'album-and-image-gallery-plus-lightbox' )
 											);
 										}
 									}
@@ -176,12 +176,12 @@ if( ! current_user_can('install_plugins') ) {
 									if ( is_plugin_active( $status['file'] ) ) {
 										$action_links[] = sprintf(
 											'<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-											_x( 'Active', 'plugin' )
+											_x( 'Active', 'plugin', 'album-and-image-gallery-plus-lightbox' )
 										);
 									} elseif ( current_user_can( 'activate_plugin', $status['file'] ) ) {
-										$button_text = __( 'Activate' );
+										$button_text = __( 'Activate', 'album-and-image-gallery-plus-lightbox' );
 										/* translators: %s: Plugin name. */
-										$button_label = _x( 'Activate %s', 'plugin' );
+										$button_label = _x( 'Activate %s', 'plugin', 'album-and-image-gallery-plus-lightbox' );
 										$activate_url = add_query_arg(
 											array(
 												'_wpnonce' => wp_create_nonce( 'activate-plugin_' . $status['file'] ),
@@ -192,9 +192,9 @@ if( ! current_user_can('install_plugins') ) {
 										);
 
 										if ( is_network_admin() ) {
-											$button_text = __( 'Network Activate' );
+											$button_text = __( 'Network Activate', 'album-and-image-gallery-plus-lightbox' );
 											/* translators: %s: Plugin name. */
-											$button_label = _x( 'Network Activate %s', 'plugin' );
+											$button_label = _x( 'Network Activate %s', 'plugin', 'album-and-image-gallery-plus-lightbox' );
 											$activate_url = add_query_arg( array( 'networkwide' => 1 ), $activate_url );
 										}
 
@@ -207,7 +207,7 @@ if( ! current_user_can('install_plugins') ) {
 									} else {
 										$action_links[] = sprintf(
 											'<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-											_x( 'Installed', 'plugin' )
+											_x( 'Installed', 'plugin', 'album-and-image-gallery-plus-lightbox' )
 										);
 									}
 									break;
@@ -218,9 +218,9 @@ if( ! current_user_can('install_plugins') ) {
 							'<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="%s">%s</a>',
 							esc_url( $details_link ),
 							/* translators: %s: Plugin name and version. */
-							esc_attr( sprintf( __( 'More information about %s' ), $name ) ),
+							esc_attr( sprintf( __( 'More information about %s', 'album-and-image-gallery-plus-lightbox' ), $name ) ),
 							esc_attr( $name ),
-							__( 'More Details' )
+							__( 'More Details', 'album-and-image-gallery-plus-lightbox' )
 						);
 					?>
 
@@ -265,10 +265,10 @@ if( ! current_user_can('install_plugins') ) {
 								</div>
 
 								<div class="column-updated">
-									<strong><?php esc_html_e( 'Last Updated:' ); ?></strong>
+									<strong><?php esc_html_e( 'Last Updated:', 'album-and-image-gallery-plus-lightbox' ); ?></strong>
 									<?php
 										/* translators: %s: Human-readable time difference. */
-										printf( __( '%s ago' ), human_time_diff( $last_updated_timestamp ) );
+										printf( __( '%s ago', 'album-and-image-gallery-plus-lightbox' ), human_time_diff( $last_updated_timestamp ) );
 									?>
 								</div>
 
@@ -278,27 +278,27 @@ if( ! current_user_can('install_plugins') ) {
 										$active_installs_millions = floor( $plugin_data['active_installs'] / 1000000 );
 										$active_installs_text     = sprintf(
 											/* translators: %s: Number of millions. */
-											_nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations' ),
+											_nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations', 'album-and-image-gallery-plus-lightbox' ),
 											number_format_i18n( $active_installs_millions )
 										);
 									} elseif ( 0 == $plugin_data['active_installs'] ) {
-										$active_installs_text = _x( 'Less Than 10', 'Active plugin installations' );
+										$active_installs_text = _x( 'Less Than 10', 'Active plugin installations', 'album-and-image-gallery-plus-lightbox' );
 									} else {
 										$active_installs_text = number_format_i18n( $plugin_data['active_installs'] ) . '+';
 									}
 									/* translators: %s: Number of installations. */
-									printf( __( '%s Active Installations' ), $active_installs_text );
+									printf( __( '%s Active Installations', 'album-and-image-gallery-plus-lightbox' ), $active_installs_text );
 									?>
 								</div>
 
 								<div class="column-compatibility">
 									<?php
 									if ( ! $tested_wp ) {
-										echo '<span class="compatibility-untested">' . __( 'Untested with your version of WordPress' ) . '</span>';
+										echo '<span class="compatibility-untested">' . __( 'Untested with your version of WordPress', 'album-and-image-gallery-plus-lightbox' ) . '</span>';
 									} elseif ( ! $compatible_wp ) {
-										echo '<span class="compatibility-incompatible">' . __( '<strong>Incompatible</strong> with your version of WordPress' ) . '</span>';
+										echo '<span class="compatibility-incompatible">' . __( '<strong>Incompatible</strong> with your version of WordPress', 'album-and-image-gallery-plus-lightbox' ) . '</span>';
 									} else {
-										echo '<span class="compatibility-compatible">' . __( '<strong>Compatible</strong> with your version of WordPress' ) . '</span>';
+										echo '<span class="compatibility-compatible">' . __( '<strong>Compatible</strong> with your version of WordPress', 'album-and-image-gallery-plus-lightbox' ) . '</span>';
 									}
 									?>
 								</div>
@@ -309,14 +309,14 @@ if( ! current_user_can('install_plugins') ) {
 					<?php } ?>
 
 				</div>
-				<div class="espbw-hide espbw-search-no-result"><?php esc_html_e('Sorry, No result found. Please refine your search.', 'espbw'); ?></div>
+				<div class="espbw-hide espbw-search-no-result"><?php esc_html_e('Sorry, No result found. Please refine your search.', 'album-and-image-gallery-plus-lightbox'); ?></div>
 			</div><!-- end .espbw-plugin-list-wrap -->			
 		</form>
 		<?php } else { ?>
 
 				<div class="espbw-no-result">
-					<p><?php esc_html_e('Sorry, Something happened wrong.', 'espbw'); ?></p>
-					<p><?php esc_html_e('You can take a look at our all plugins at', 'espbw'); ?> <a href="https://profiles.wordpress.org/essentialplugin#content-plugins" target="_blank"><?php esc_html_e('here', 'espbw'); ?></a>.</p>
+					<p><?php esc_html_e('Sorry, Something happened wrong.', 'album-and-image-gallery-plus-lightbox'); ?></p>
+					<p><?php esc_html_e('You can take a look at our all plugins at', 'album-and-image-gallery-plus-lightbox'); ?> <a href="https://profiles.wordpress.org/essentialplugin#content-plugins" target="_blank"><?php esc_html_e('here', 'album-and-image-gallery-plus-lightbox'); ?></a>.</p>
 				</div>
 
 			<?php }

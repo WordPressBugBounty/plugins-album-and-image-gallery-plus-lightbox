@@ -159,7 +159,7 @@ class Aigpl_Admin {
 	 */
 	function aigpl_add_post_row_data( $actions, $post ) {
 
-		if( $post->post_type == AIGPL_POST_TYPE ) {
+		if ( $post->post_type == AIGPL_POST_TYPE ) {
 			return array_merge( array( 'aigpl_id' => 'ID: ' . esc_attr( $post->ID )), $actions );
 		}
 
@@ -175,7 +175,7 @@ class Aigpl_Admin {
 
 		global $typenow;
 
-		if( $typenow == AIGPL_POST_TYPE ) {
+		if ( $typenow == AIGPL_POST_TYPE ) {
 			include_once( AIGPL_DIR .'/includes/admin/settings/aigpl-img-popup.php');
 		}
 	}
@@ -194,11 +194,11 @@ class Aigpl_Admin {
 		$attachment_id		= ! empty( $_POST['attachment_id'] )	? aigpl_clean( $_POST['attachment_id'] )	: '';
 		$nonce				= ! empty( $_POST['nonce'] )			? aigpl_clean( $_POST['nonce'] )			: '';
 
-		if( ! empty( $attachment_id ) && wp_verify_nonce( $nonce, 'aigpl-edit-attachment-data' ) ) {
+		if ( ! empty( $attachment_id ) && wp_verify_nonce( $nonce, 'aigpl-edit-attachment-data' ) ) {
 			
 			$attachment_post = get_post( $attachment_id );
 
-			if( ! empty( $attachment_post ) ) {
+			if ( ! empty( $attachment_post ) ) {
 
 				ob_start();
 
@@ -224,20 +224,27 @@ class Aigpl_Admin {
 	function aigpl_save_attachment_data() {
 
 		$prefix				= AIGPL_META_PREFIX;
-		$result				= array();
-		$result['success']	= 0;
-		$result['msg']		= esc_js( __( 'Sorry, Something happened wrong.', 'album-and-image-gallery-plus-lightbox' ) );
+		$result = array(
+			'success' => 0,
+			'msg'     => esc_js( __( 'Sorry, something went wrong.', 'album-and-image-gallery-plus-lightbox' ) ),
+		);
+
+		// Check if required POST values exist and sanitize
 		$attachment_id		= ! empty( $_POST['attachment_id'] )	? aigpl_clean( $_POST['attachment_id'] )	: '';
 		$nonce				= ! empty( $_POST['nonce'] )			? aigpl_clean( $_POST['nonce'] )			: '';
-		$form_data			= parse_str( $_POST['form_data'], $form_data_arr );
+		$form_data_arr = array(); // initialize to avoid undefined variable
+		if ( isset( $_POST['form_data'] ) ) {
+			$raw_form_data = wp_unslash( $_POST['form_data'] ); // store unslashed input in a variable
+			parse_str( $raw_form_data, $form_data_arr );          // parse into array
+		}
 
-		if( ! empty( $attachment_id ) && ! empty( $form_data_arr ) && wp_verify_nonce( $nonce, "aigpl-save-attachment-data-{$attachment_id}" ) ) {
+		if ( ! empty( $attachment_id ) && ! empty( $form_data_arr ) && wp_verify_nonce( $nonce, "aigpl-save-attachment-data-{$attachment_id}" ) ) {
 
 			// Getting attachment post
 			$aigpl_attachment_post = get_post( $attachment_id );
 
 			// If post type is attachment
-			if( isset( $aigpl_attachment_post->post_type ) && $aigpl_attachment_post->post_type == 'attachment' ) {
+			if ( isset( $aigpl_attachment_post->post_type ) && $aigpl_attachment_post->post_type == 'attachment' ) {
 				$post_args = array(
 									'ID'			=> $attachment_id,
 									'post_title'	=> ! empty( $form_data_arr['aigpl_attachment_title'] ) ? $form_data_arr['aigpl_attachment_title'] : $aigpl_attachment_post->post_name,
@@ -246,7 +253,7 @@ class Aigpl_Admin {
 								);
 				$update = wp_update_post( $post_args );
 
-				if( ! is_wp_error( $update ) ) {
+				if ( ! is_wp_error( $update ) ) {
 
 					update_post_meta( $attachment_id, '_wp_attachment_image_alt', aigpl_clean( $form_data_arr['aigpl_attachment_alt'] ) );
 					update_post_meta( $attachment_id, $prefix.'attachment_link', aigpl_clean_url( $form_data_arr['aigpl_attachment_link'] ) );
@@ -269,22 +276,32 @@ class Aigpl_Admin {
 
 		global $typenow;
 
-		$current_page = isset( $_REQUEST['page'] ) ? $_REQUEST['page'] : '';
+		// Unsplash and sanitize input
+		$current_page = isset( $_REQUEST['page'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ) : '';
 
 		// If plugin notice is dismissed
-		if( isset( $_GET['message']) && $_GET['message'] == 'aigpl-plugin-notice' ) {
+		if ( isset( $_GET['message']) && $_GET['message'] == 'aigpl-plugin-notice' ) {
 			set_transient( 'aigpl_install_notice', true, 604800 );
 		}
 
 		// Redirect to external page for upgrade to menu
-		if( $typenow == AIGPL_POST_TYPE ) {
+		if ( $typenow == AIGPL_POST_TYPE ) {
 
-			if( $current_page == 'aigpl-premium' ) {
+			if ( $current_page == 'aigpl-premium' ) {
 
-				$tab_url		= add_query_arg( array( 'post_type' => AIGPL_POST_TYPE, 'page' => 'aigpl-solutions-features', 'tab' => 'aigpl_basic_tabs' ), admin_url('edit.php') );
+				$tab_url = add_query_arg(
+					array(
+						'post_type' => AIGPL_POST_TYPE,
+						'page'      => 'aigpl-solutions-features',
+						'tab'       => 'aigpl_basic_tabs'
+					),
+					admin_url('edit.php')
+				);
 
-				wp_redirect( $tab_url );
+				// Use wp_safe_redirect for safer redirection
+				wp_safe_redirect( $tab_url );
 				exit;
+
 			}
 		}
 

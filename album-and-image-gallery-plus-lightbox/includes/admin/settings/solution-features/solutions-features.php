@@ -13,7 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Taking some variables
 $aigpl_add_link = add_query_arg( array( 'post_type' => AIGPL_POST_TYPE ), admin_url( 'post-new.php' ) );
 
-$tab = isset( $_GET['tab'] ) ? '#'.$_GET['tab'] : '#aigpl_welcome_tabs';
+$tab = '#aigpl_welcome_tabs';
+
+if ( isset( $_GET['tab'] ) ) {
+	$tab = '#' . sanitize_text_field( $_GET['tab'] );
+}
 ?>
 
 <div id="wrap" class="wpos-solutions-features-page">
@@ -35,13 +39,6 @@ $tab = isset( $_GET['tab'] ) ? '#'.$_GET['tab'] : '#aigpl_welcome_tabs';
 		.aigpl-vtab-nav.aigpl-active-vtab a{ box-shadow: 5px 0 0 0 #46b450 inset !important; }
 		.aigpl-vtab-nav-wrap .aigpl-vtab-nav a:hover {box-shadow: 5px 0 0 0 #6c63ff inset !important; }
 
-		/**** commod deal offer ****/
-		/*.aigpl-deal-offer-wrap{position: relative;padding: 0.75rem 1.25rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: 0.25rem; color: #000;background-color: #ffd104;border-color: #ffd104;margin-top: 20px;}
-		
-		.aigpl-deal-offer{display:flex;align-items: center; margin-top: 15px;}
-		.aigpl-inn-deal-offer{flex-basis:60%; padding: 20px; text-align:left;}
-		.aigpl-inn-deal-hedding span{color:#6c63ff;}*/
-		
 		/***free 5 day offer new CSS START***/
 		.aigpl-deal-offer-wrap{position: relative;padding:0 1.25rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: 0.25rem; color: #000;background-color: #6c63ff;border-color: #6c63ff;margin-top: 20px;}
 		.aigpl-deal-offer{display:flex;align-items: center;}
@@ -52,7 +49,6 @@ $tab = isset( $_GET['tab'] ) ? '#'.$_GET['tab'] : '#aigpl_welcome_tabs';
 		.aigpl-sf-free-btn{display: inline-block; font-size: 18px; padding: 10px 25px; border-radius: 100px;  background-color: #ffef00 ; border-color: #ffef00 ; color: #000; font-weight: 600; text-decoration: none;}
 		.aigpl-sf-free-btn:hover, .aigpl-sf-free-btn:focus{ color: #000; }
 		/***free 5 day offer new CSS END***/
-
 
 		.aigpl-inn-deal-hedding{font-size: 22px;}
 		
@@ -136,7 +132,6 @@ $tab = isset( $_GET['tab'] ) ? '#'.$_GET['tab'] : '#aigpl_welcome_tabs';
 			</li>
 
 			<li class="aigpl-vtab-nav">
-				<!-- <a href="#aigpl_unlock_tabs" class="aigpl-overview-tabs"><?php //esc_html_e('Unlock More', 'album-and-image-gallery-plus-lightbox'); ?></a> -->
 				<a href="#aigpl_unlock_tabs" class="aigpl-overview-tabs"><?php esc_html_e('Album in Essential Bundle', 'album-and-image-gallery-plus-lightbox'); ?></a>
 			</li>
 

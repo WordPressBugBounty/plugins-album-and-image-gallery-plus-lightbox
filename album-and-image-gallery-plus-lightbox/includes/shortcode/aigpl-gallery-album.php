@@ -21,22 +21,22 @@ function aigpl_gallery_album( $atts, $content = null ) {
 	global $post;
 
 	// SiteOrigin Page Builder Gutenberg Block Tweak - Do not Display Preview
-	if( isset( $_POST['action'] ) && ($_POST['action'] == 'so_panels_layout_block_preview' || $_POST['action'] == 'so_panels_builder_content_json') ) {
+	if ( isset( $_POST['action'] ) && ($_POST['action'] == 'so_panels_layout_block_preview' || $_POST['action'] == 'so_panels_builder_content_json') ) {
 		return "[aigpl-gallery-album]";
 	}
 
 	// Divi Frontend Builder - Do not Display Preview
-	if( function_exists( 'et_core_is_fb_enabled' ) && isset( $_POST['is_fb_preview'] ) && isset( $_POST['shortcode'] ) ) {
+	if ( function_exists( 'et_core_is_fb_enabled' ) && isset( $_POST['is_fb_preview'] ) && isset( $_POST['shortcode'] ) ) {
 		return '<div class="aigpl-builder-shrt-prev">
-					<div class="aigpl-builder-shrt-title"><span>'.esc_html__('Album Grid View', 'album-and-image-gallery-plus-lightbox').'</span></div>
+					<div class="aigpl-builder-shrt-title"><span>' . esc_html__('Album Grid View', 'album-and-image-gallery-plus-lightbox') . '</span></div>
 					aigpl-gallery-album
 				</div>';
 	}
 
 	// Fusion Builder Live Editor - Do not Display Preview
-	if( class_exists( 'FusionBuilder' ) && (( isset( $_GET['builder'] ) && $_GET['builder'] == 'true' ) || ( isset( $_POST['action'] ) && $_POST['action'] == 'get_shortcode_render' )) ) {
+	if ( class_exists( 'FusionBuilder' ) && (( isset( $_GET['builder'] ) && $_GET['builder'] == 'true' ) || ( isset( $_POST['action'] ) && $_POST['action'] == 'get_shortcode_render' )) ) {
 		return '<div class="aigpl-builder-shrt-prev">
-					<div class="aigpl-builder-shrt-title"><span>'.esc_html__('Gallery Grid View', 'album-and-image-gallery-plus-lightbox').'</span></div>
+					<div class="aigpl-builder-shrt-title"><span>' . esc_html__('Gallery Grid View', 'album-and-image-gallery-plus-lightbox') . '</span></div>
 					aigpl-gallery-album
 				</div>';
 	}
@@ -72,10 +72,10 @@ function aigpl_gallery_album( $atts, $content = null ) {
 
 	$album_designs		= aigpl_album_designs();
 	$unique_album_no	= aigpl_unique_num();
-	$content_tail		= html_entity_decode( $content_tail );
-	$limit				= ! empty( $limit )						? $limit							: 15;
-	$post_ids			= ! empty( $id )						? explode( ',', $id )				: array();
-	$album_grid			= ( ! empty( $album_grid ) && $album_grid <= 12 )	? $album_grid			: 3;
+	$content_tail		= sanitize_text_field( $content_tail );
+	$limit				= ! empty( $limit )						? absint($limit)							: 15;
+	$post_ids			= ! empty( $id )						? array_map( 'absint', explode( ',', $id ) )	: array();
+	$album_grid			= ( ! empty( $album_grid ) && $album_grid <= 12 )	? absint($album_grid)			: 3;
 	$album_design		= ( $album_design && ( array_key_exists( trim( $album_design ), $album_designs ))) ? trim( $album_design ) : 'design-1';
 	$album_link_target	= ( $album_link_target == 'blank' )		? '_blank'							: '_self';
 	$album_title		= ( $album_title == 'true' )			? 1									: 0;
@@ -89,7 +89,7 @@ function aigpl_gallery_album( $atts, $content = null ) {
 	$extra_class		= $extra_class .' '. $align .' '. $className;
 	$extra_class		= aigpl_sanitize_html_classes( $extra_class );
 	$lazyload			= '';
-	$album_ses			= ! empty( $_GET['album_ses'] )	? $_GET['album_ses']	: '';
+	$album_ses			= ! empty( $_GET['album_ses'] )	? sanitize_text_field( $_GET['album_ses'] )	: '';
 
 	// If album id passed and album_ses match to passed number
 	$aigpl_album_id 	= ! empty( $_GET['album'] )	? aigpl_clean_number( $_GET['album'], '', 'number' )	: '';
@@ -110,7 +110,7 @@ function aigpl_gallery_album( $atts, $content = null ) {
 	$main_cls	= "aigpl-cnt-wrp aigpl-col-{$album_grid} aigpl-columns";
 
 	// If album id is not passed then take all albums else album images
-	if( $album_ses != $unique_album_no ) {
+	if ( $album_ses != $unique_album_no ) {
 
 		// WP Query Parameters
 		$args = array (
@@ -126,13 +126,13 @@ function aigpl_gallery_album( $atts, $content = null ) {
 		// Meta Query
 		$args['meta_query'] = array(
 								array(
-									'key'		=> $prefix.'gallery_imgs',
+									'key'		=> $prefix . 'gallery_imgs',
 									'value'		=> '',
 									'compare'	=> '!=',
 								));
 
 		// Category Parameter
-		if( ! empty( $category ) ) {
+		if ( ! empty( $category ) ) {
 			$args['tax_query'] = array(
 									array( 
 										'taxonomy'	=> AIGPL_CAT,
@@ -155,22 +155,22 @@ function aigpl_gallery_album( $atts, $content = null ) {
 
 		<?php while ( $aigpl_query->have_posts() ) : $aigpl_query->the_post();
 
-				$wrpper_cls			= ( $loop_count == 1 ) ? $main_cls.' aigpl-first' : $main_cls;
-				$album_image		= add_query_arg( array( 'album' => $post->ID, 'album_ses' => $unique_album_no), $album_page )."#aigpl-album-gallery-".$unique_album_no;
+				$wrpper_cls			= ( $loop_count == 1 ) ? $main_cls . ' aigpl-first' : $main_cls;
+				$album_image		= add_query_arg( array( 'album' => $post->ID, 'album_ses' => $unique_album_no), $album_page ) . "#aigpl-album-gallery-" . $unique_album_no;
 				$image_link			= aigpl_get_image_src( get_post_thumbnail_id( $post->ID ), $image_size, true );
 				$total_photo_no		= get_post_meta( $post->ID, $prefix.'gallery_imgs', true );
 				$total_photo_no		= ! empty( $total_photo_no ) ? count( $total_photo_no ) : '';
 				$total_photo_lbl	= str_replace( '{total}', $total_photo_no, $total_photo );
 
 				// Include shortcode html file
-				if( $design_file ) {
+				if ( $design_file ) {
 					include( $design_file );
 				}
 
 				$loop_count++; // Increment loop count
 
 				// Reset loop count
-				if( $loop_count == $album_grid ) {
+				if ( $loop_count == $album_grid ) {
 					$loop_count = 0;
 				}
 		endwhile; ?>
@@ -180,11 +180,11 @@ function aigpl_gallery_album( $atts, $content = null ) {
 	<?php
 		wp_reset_postdata(); // Reset WP Query
 
-	} elseif( ! empty( $aigpl_album_id ) && ( $album_ses == $unique_album_no ) ) { // If album id is passed
+	} elseif ( ! empty( $aigpl_album_id ) && ( $album_ses == $unique_album_no ) ) { // If album id is passed
 
-			echo "<div class='aigpl-breadcrumb-wrp' id='aigpl-album-gallery-{$unique_album_no}'><a class='aigpl-breadcrumb' href='{$album_page}'>".esc_html__('Main Album', 'album-and-image-gallery-plus-lightbox')."</a> &raquo; ".get_the_title($post_ids)."</div>";
+			echo "<div class='aigpl-breadcrumb-wrp' id='aigpl-album-gallery-{$unique_album_no}'><a class='aigpl-breadcrumb' href='{$album_page}'>" . esc_html__('Main Album', 'album-and-image-gallery-plus-lightbox') . "</a> &raquo; " . get_the_title($post_ids) . "</div>";
 
-			echo do_shortcode( '[aigpl-gallery id="'.$post_ids.'" grid="'.$grid.'" gallery_height="'.$gallery_height.'" show_caption="'.$show_caption.'" show_title="'.$show_title.'" show_description="'.$show_description.'" popup="'.$popup.'" link_target="'.$link_target.'" design="'.$design.'" image_size="'.$image_size.'"]' );
+			echo do_shortcode( '[aigpl-gallery id="' . $post_ids . '" grid="' . $grid . '" gallery_height="' . $gallery_height . '" show_caption="' . $show_caption . '" show_title="' . $show_title . '" show_description="' . $show_description . '" popup="' . $popup . '" link_target="' . $link_target . '" design="' . $design . '" image_size="' . $image_size . '"]' );
 
 	} // end else
 

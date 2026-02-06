@@ -120,11 +120,14 @@ class Aigpl_Script {
 
 		// Registring public script
 		wp_register_script( 'aigpl-public-js', AIGPL_URL.'assets/js/aigpl-public.js', array('jquery'), AIGPL_VERSION, true );
+
+		/* translators: %curr% is the current image number, %total% is the total number of images */
+		$mfp_img_counter = esc_js( __( '%curr% of %total%', 'album-and-image-gallery-plus-lightbox' ) );
 		wp_localize_script( 'aigpl-public-js', 'Aigpl', array(
 															'elementor_preview'	=> $elementor_preview,
 															'is_mobile'			=> (wp_is_mobile())	? 1 : 0,
 															'is_rtl'			=> (is_rtl())		? 1 : 0,
-															'mfp_img_counter'	=> esc_js( __( '%curr% of %total%', 'album-and-image-gallery-plus-lightbox' ) ),
+															'mfp_img_counter'	=> $mfp_img_counter,
 															'is_avada'			=> (class_exists( 'FusionBuilder' ))	? 1 : 0,
 														));
 

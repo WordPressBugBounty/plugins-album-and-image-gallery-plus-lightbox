@@ -14,10 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div id="aigpl_unlock_tabs" class="aigpl-vtab-cnt aigpl_unlock_tabs aigpl-clearfix">
 
-	<!-- <div class="aigpl-black-friday-banner-wrp">
-		<a href="<?php // echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php // echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
-	</div> -->
-
 	<h2 style="font-size: 24px; text-align: center; color: #6c63ff;">Bundle Deal Details</h2>
 	<table class="wpos-plugin-list">
 		<thead>
@@ -99,34 +95,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div style="text-align: center;">
 		<img style="width: 100%; margin-bottom:30px;" src="<?php echo esc_url( AIGPL_URL ); ?>assets/images/image-upgrade.png" alt="image-upgrade" title="image-upgrade" />
 	</div>
-
-	<!-- <div class="aigpl-deal-offer-wrap">
-		<div class="aigpl-deal-offer"> 
-			<div class="aigpl-inn-deal-offer">
-				<h3 class="aigpl-inn-deal-hedding"><span>Buy Album and Image Gallery Plus Lightbox</span> today and unlock all the powerful features.</h3>
-				<h4 class="aigpl-inn-deal-sub-hedding"><span style="color:red;">Extra Bonus: </span>Users will get <span>15% off</span> on the regular price using this coupon code.</h4>
-			</div>
-			<div class="aigpl-inn-deal-offer-btn">
-				<div class="aigpl-inn-deal-code"><span>EPS15</span></div>
-				<a href="<?php //echo esc_url(AIGPL_PLUGIN_BUNDLE_LINK); ?>" target="_blank" class="aigpl-sf-btn aigpl-sf-btn-orange"><span class="dashicons dashicons-cart"></span> Get Essential Bundle Now</a>
-				<em class="risk-free-guarantee"><span class="heading">Risk-Free Guarantee </span> - We offer a <span>30-day money back guarantee on all purchases</span>. If you are not happy with your purchases, we will refund your purchase. No questions asked!</em>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- <div class="aigpl-deal-offer-wrap">
-		<div class="aigpl-deal-offer"> 
-			<div class="aigpl-inn-deal-offer">
-				<h3 class="aigpl-inn-deal-hedding"><span>Try Album and Image Gallery Plus Lightbox Pro</span> in Essential Bundle Free For 5 Days.</h3>
-			</div>
-			<div class="aigpl-deal-free-offer">
-				<a href="<?php //echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank" class="aigpl-sf-free-btn"><span class="dashicons dashicons-cart"></span> Try Pro For 5 Days Free</a>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- <div class="aigpl-black-friday-banner-wrp">
-		<a href="<?php// echo esc_url( AIGPL_PLUGIN_BUNDLE_LINK ); ?>" target="_blank"><img style="width: 100%;" src="<?php // echo esc_url( AIGPL_URL ); ?>assets/images/black-friday-banner.png" alt="black-friday-banner" /></a>
-	</div> -->
 
 </div>

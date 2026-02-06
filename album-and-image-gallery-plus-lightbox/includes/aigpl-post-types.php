@@ -34,14 +34,14 @@ function aigpl_register_post_type() {
 								'remove_featured_image'		=> __( 'Remove Album Image', 'album-and-image-gallery-plus-lightbox' ),
 								'menu_name'					=> __( 'Album Gallery', 'album-and-image-gallery-plus-lightbox' ),
 								'use_featured_image'		=> __( 'Use as Album Image', 'album-and-image-gallery-plus-lightbox' ),
-								'items_list'				=> __( 'Album list.', 'sp-news-and-widget' ),
-								'item_published'			=> __( 'Album published.', 'sp-news-and-widget' ),
-								'item_published_privately'	=> __( 'Album published privately.', 'sp-news-and-widget' ),
-								'item_reverted_to_draft'	=> __( 'Album reverted to draft.', 'sp-news-and-widget' ),
-								'item_scheduled'			=> __( 'Album scheduled.', 'sp-news-and-widget' ),
-								'item_updated'				=> __( 'Album updated.', 'sp-news-and-widget' ),
-								'item_link'					=> __( 'Album Link', 'sp-news-and-widget' ),
-								'item_link_description'		=> __( 'A link to a album.', 'sp-news-and-widget' ),
+								'items_list'				=> __( 'Album list.', 'album-and-image-gallery-plus-lightbox' ),
+								'item_published'			=> __( 'Album published.', 'album-and-image-gallery-plus-lightbox' ),
+								'item_published_privately'	=> __( 'Album published privately.', 'album-and-image-gallery-plus-lightbox' ),
+								'item_reverted_to_draft'	=> __( 'Album reverted to draft.', 'album-and-image-gallery-plus-lightbox' ),
+								'item_scheduled'			=> __( 'Album scheduled.', 'album-and-image-gallery-plus-lightbox' ),
+								'item_updated'				=> __( 'Album updated.', 'album-and-image-gallery-plus-lightbox' ),
+								'item_link'					=> __( 'Album Link', 'album-and-image-gallery-plus-lightbox' ),
+								'item_link_description'		=> __( 'A link to a album.', 'album-and-image-gallery-plus-lightbox' ),
 							));
 
 	$aigpl_slider_args = array(
@@ -112,21 +112,26 @@ function aigpl_post_updated_messages( $messages ) {
 
 	$messages[AIGPL_POST_TYPE] = array(
 		0 => '', // Unused. Messages start at index 1.
-		1 => sprintf( __( 'Album Gallery updated.', 'album-and-image-gallery-plus-lightbox' ) ),
+		1 => __( 'Album Gallery updated.', 'album-and-image-gallery-plus-lightbox' ),
 		2 => __( 'Custom field updated.', 'album-and-image-gallery-plus-lightbox' ),
 		3 => __( 'Custom field deleted.', 'album-and-image-gallery-plus-lightbox' ),
 		4 => __( 'Album Gallery updated.', 'album-and-image-gallery-plus-lightbox' ),
+
+		/* translators: %s is the date/time of the revision being restored */
 		5 => isset( $_GET['revision'] ) ? sprintf( __( 'Album Gallery restored to revision from %s', 'album-and-image-gallery-plus-lightbox' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-		6 => sprintf( __( 'Album Gallery published.', 'album-and-image-gallery-plus-lightbox' ) ),
+
+		6 => __( 'Album Gallery published.', 'album-and-image-gallery-plus-lightbox' ),
 		7 => __( 'Album Gallery saved.', 'album-and-image-gallery-plus-lightbox' ),
-		8 => sprintf( __( 'Album Gallery submitted.', 'album-and-image-gallery-plus-lightbox' ) ),
+		8 => __( 'Album Gallery submitted.', 'album-and-image-gallery-plus-lightbox' ),
+
+		/* translators: %1$s is the scheduled date and time of the post */
 		9 => sprintf( __( 'Album Gallery scheduled for: <strong>%1$s</strong>.', 'album-and-image-gallery-plus-lightbox' ),
 		  date_i18n( __( 'M j, Y @ G:i', 'album-and-image-gallery-plus-lightbox' ), strtotime( $post->post_date ) ) ),
-		10 => sprintf( __( 'Album Gallery draft updated.', 'album-and-image-gallery-plus-lightbox' ) ),
+
+		10 => __( 'Album Gallery draft updated.', 'album-and-image-gallery-plus-lightbox' ),
 	);
 
 	return $messages;
 }
-
 // Filter to update slider post message
 add_filter( 'post_updated_messages', 'aigpl_post_updated_messages' );

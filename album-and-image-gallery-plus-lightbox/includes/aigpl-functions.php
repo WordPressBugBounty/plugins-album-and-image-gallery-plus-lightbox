@@ -92,7 +92,7 @@ function aigpl_get_unique() {
 	// For Elementor & Beaver Builder
 	if( ( defined('ELEMENTOR_PLUGIN_BASE') && isset( $_POST['action'] ) && $_POST['action'] == 'elementor_ajax' )
 	|| ( class_exists('FLBuilderModel') && ! empty( $_POST['fl_builder_data']['action'] ) ) ) {
-		$unique = current_time('timestamp') . '-' . rand();
+		$unique = current_time('timestamp') . '-' . wp_rand();
 	}
 
 	return $unique;
@@ -110,7 +110,7 @@ function aigpl_unique_num() {
 	// For Elementor & Beaver Builder
 	if( ( defined('ELEMENTOR_PLUGIN_BASE') && isset( $_POST['action'] ) && $_POST['action'] == 'elementor_ajax' )
 	|| ( class_exists('FLBuilderModel') && ! empty( $_POST['fl_builder_data']['action'] ) ) ) {
-		$unique = current_time('timestamp') . '-' . rand();
+		$unique = current_time('timestamp') . '-' . wp_rand();
 	}
 
 	return $unique;
